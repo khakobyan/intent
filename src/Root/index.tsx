@@ -9,8 +9,11 @@ export const App = () => {
   const [ countries ] = React.useState(['Poland', 'Germany', 'France', 'Spain', 'United Kingdom'])
   React.useEffect(() => {
     async function setCountries() {
-      const countriesData = await JSON.stringify(countries);
-      await AsyncStorage.setItem('countries', countriesData)
+      const currentCountries =  await AsyncStorage.getItem('countries')
+      if (!currentCountries) {
+        const countriesData = await JSON.stringify(countries)
+        await AsyncStorage.setItem('countries', countriesData)
+      }
     }
 
     setCountries()

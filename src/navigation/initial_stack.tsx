@@ -3,20 +3,24 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CountriesScreen from '../screens/countries';
 import UniversitiesScreen from '../screens/universities';
 
-const Stack = createStackNavigator();
+type StackParamList = {
+  Countries: undefined;
+  Universities: { country: string };
+};
+
+const Stack = createStackNavigator<StackParamList>();
 
 export const InitialStack = () => {
   return (
-    <Stack.Navigator initialRouteName=''>
+    <Stack.Navigator initialRouteName='Countries'>
       <Stack.Screen
         name="Countries"
         component={CountriesScreen}
-        // options={{headerShown: false}}
       />
       <Stack.Screen
         name="Universities"
         component={UniversitiesScreen}
-        // options={{headerShown: false}}
+        options={({route}) => ({ title: route.params?.country })}
       />
     </Stack.Navigator>
   );

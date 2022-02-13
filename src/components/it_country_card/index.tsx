@@ -5,9 +5,10 @@ import styles from './styles';
 
 interface Props {
   title: string
+  onPress: any
 }  
 
-export const ITCountryCard: FC<Props> = ({title}) => {
+export const ITCountryCard: FC<Props> = ({title, ...rest}) => {
   const setIcon = () => {
     switch (title) {
       case 'Poland':
@@ -28,6 +29,7 @@ export const ITCountryCard: FC<Props> = ({title}) => {
   return (
     <TouchableOpacity
       style={styles.container}
+      {...rest}
     >
       {setIcon()}
       <Text>{title}</Text>

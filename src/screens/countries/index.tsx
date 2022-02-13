@@ -1,10 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { ITContainer, ITCountryCard } from '../../components';
 import styles from './styles';
 
-function CountriesScreen() {
+interface Props {
+  navigation: any
+}
+
+const CountriesScreen: FC<Props> = ({ navigation }) => {
   const [countries, setcountries] = useState([])
 
   useEffect(() => {
@@ -21,7 +25,7 @@ function CountriesScreen() {
   return (
     <ITContainer>
       <ScrollView contentContainerStyle={styles.container}>
-        { countries.map(country => (<ITCountryCard key={country} title={country}/>))}
+        { countries.map(country => (<ITCountryCard key={country} title={country} onPress={() => navigation.navigate('Universities', {country})} />))}
       </ScrollView>
     </ITContainer>
   )
