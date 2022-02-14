@@ -13,5 +13,8 @@ export default StyleSheet.create({
     paddingTop: heightPercentageToDP('2'),
     paddingVertical: heightPercentageToDP('6'),
     marginHorizontal: widthPercentageToDP('2'),
+  },
+  activityIndicator: {
+    marginTop: heightPercentageToDP('30'),
   }
 });
