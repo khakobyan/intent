@@ -9,4 +9,9 @@ export default StyleSheet.create({
     paddingHorizontal: widthPercentageToDP('2'),
     marginTop: heightPercentageToDP('1'),
   },
+  listContainer: {
+    paddingTop: heightPercentageToDP('2'),
+    paddingVertical: heightPercentageToDP('6'),
+    marginHorizontal: widthPercentageToDP('2'),
+  }
 });

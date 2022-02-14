@@ -1,8 +1,9 @@
 import axios from 'axios'
-import {BASE_URL} from '../utils/env';
+import { Platform } from 'react-native';
+import {BASE_URL_ANDROID, BASE_URL_IOS} from '../utils/env';
 
 const axiosApiConfig = {
-  baseURL: `${BASE_URL}`,
+  baseURL: Platform.OS == 'ios' ? `${BASE_URL_IOS}` : `${BASE_URL_ANDROID}`,
   timeout: 5000,
 };
 

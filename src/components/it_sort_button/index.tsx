@@ -5,16 +5,16 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 interface Props {
   onPress: any
-  value: string
+  value: boolean
 }  
 
-export const ITSortButton: FC<Props> = ({value = 'asc', ...rest}) => { 
+export const ITSortButton: FC<Props> = ({value, ...rest}) => { 
   return (
     <TouchableOpacity
       style={styles.container}
       {...rest}
     >
-      <Icon name={value == 'asc' ? 'arrowdown' : 'arrowup'} size={20}/>
+      <Icon name={value ? 'arrowdown' : 'arrowup'} size={20}/>
     </TouchableOpacity>
   );
 }

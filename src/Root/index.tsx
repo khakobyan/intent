@@ -4,6 +4,8 @@ import BootSplash from 'react-native-bootsplash'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Routes } from '../navigation';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 
 export const App = () => {
   const [ countries ] = React.useState(['Poland', 'Germany', 'France', 'Spain', 'United Kingdom'])
@@ -21,11 +23,11 @@ export const App = () => {
   }, [])
 
   return (
-    <>
+    <Provider store={store}>
       <SafeAreaProvider>
         <StatusBar translucent backgroundColor='transparent' barStyle="dark-content" />
         <Routes />
       </SafeAreaProvider>
-    </>
+    </Provider>
   )
 }

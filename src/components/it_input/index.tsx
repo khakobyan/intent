@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 interface Props {
   value: string,
   placeholder: string,
+  onChangeText: any,
 }
 
 export const ITInput: FC<Props> = ({value, placeholder, ...rest}) => {
